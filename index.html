@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#25673f">
+  <meta name="description" content="Lesen, entdecken und erzählen – drei interaktive Lesespiele für Kinder.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon-192.png">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <title>Lesen · entdecken · erzählen</title>
+  <style>
+    :root{--green:#23663e;--ink:#173c2a;--cream:#fff9e9;--blue:#2b76b9;--gold:#ffc83d;--shadow:0 16px 38px rgba(20,67,43,.2)}
+    *{box-sizing:border-box}
+    html,body{min-height:100%;margin:0}
+    body{font-family:Nunito,"Trebuchet MS",system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at 12% 12%,#fff7c8 0 9%,transparent 25%),linear-gradient(145deg,#dff5e2,#ddecff 52%,#fff1cf);padding:clamp(18px,4vw,48px)}
+    main{width:min(1180px,100%);margin:auto}
+    .hero{text-align:center;margin-bottom:clamp(24px,4vw,42px)}
+    .logo{width:clamp(104px,17vw,174px);aspect-ratio:1;border-radius:27%;box-shadow:var(--shadow);display:block;margin:0 auto 18px}
+    h1{font-size:clamp(2rem,6vw,4.25rem);line-height:1.02;letter-spacing:-.045em;margin:0;color:#174c30}
+    .intro{font-size:clamp(1.05rem,2.5vw,1.45rem);font-weight:800;margin:12px 0 0}
+    .games{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2.5vw,26px)}
+    .game{position:relative;min-height:clamp(270px,35vw,410px);border:5px solid rgba(255,255,255,.94);border-radius:30px;overflow:hidden;text-decoration:none;color:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;transition:transform .2s ease,box-shadow .2s ease}
+    .game:hover,.game:focus-visible{transform:translateY(-6px);box-shadow:0 23px 50px rgba(20,67,43,.28);outline:4px solid var(--gold);outline-offset:4px}
+    .picture{position:absolute;inset:0;display:grid;place-items:center;z-index:-2}
+    .picture::after{content:"";position:absolute;inset:38% 0 0;background:linear-gradient(transparent,rgba(8,38,26,.88))}
+    .symbol{font-size:clamp(7rem,16vw,12rem);filter:drop-shadow(0 10px 10px rgba(0,0,0,.18));transform:rotate(-4deg)}
+    .football .picture{background:linear-gradient(155deg,#8ed6ff 0 43%,#50aa59 44% 100%)}
+    .park .picture{background:linear-gradient(155deg,#bde5ff 0 38%,#f0b55c 39%,#86b957 100%)}
+    .errors .picture{background:#2f7a49}
+    .errors .picture img{width:78%;height:78%;object-fit:cover;border-radius:24%;box-shadow:0 13px 26px rgba(0,0,0,.2)}
+    .copy{padding:clamp(18px,3vw,30px);position:relative;z-index:1}
+    .title{font-size:clamp(1.5rem,3.2vw,2.35rem);font-weight:950;line-height:1.05;display:block}
+    .meta{display:block;font-size:clamp(.95rem,1.7vw,1.15rem);font-weight:850;margin-top:8px;color:#fff7ce}
+    footer{text-align:center;font-weight:750;margin-top:28px;color:#315d43}
+    @media(max-width:850px){.games{grid-template-columns:1fr}.game{min-height:250px}.symbol{font-size:9rem}.errors .picture img{width:auto;height:82%;aspect-ratio:1}}
+    @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <img class="logo" src="./icon-512.png" alt="Buch, Lupe und Sprechblase">
+      <h1>Lesen · entdecken · erzählen</h1>
+      <p class="intro">Welches Spiel möchtest du heute spielen?</p>
+    </header>
+    <section class="games" aria-label="Spielauswahl">
+      <a class="game football" href="./geschichten.html?spiel=football">
+        <span class="picture"><span class="symbol" aria-hidden="true">⚽</span></span>
+        <span class="copy"><span class="title">Auf dem Fußballplatz</span><span class="meta">17 Geschichten · 85 Karten</span></span>
+      </a>
+      <a class="game park" href="./geschichten.html?spiel=park">
+        <span class="picture"><span class="symbol" aria-hidden="true">🍂</span></span>
+        <span class="copy"><span class="title">Im Herbstpark</span><span class="meta">16 Geschichten · 80 Karten</span></span>
+      </a>
+      <a class="game errors" href="./finde-den-fehler.html">
+        <span class="picture"><img src="./fehler-icon-512.png" alt="Socke und Blatt unter einer Lupe"></span>
+        <span class="copy"><span class="title">Finde den Fehler</span><span class="meta">20 Suchaufgaben mit Ton</span></span>
+      </a>
+    </section>
+    <footer>Wähle ein Bild aus und leg los.</footer>
+  </main>
+  <script>
+    if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}))}
+  </script>
+</body>
+</html>

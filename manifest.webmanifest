@@ -1,0 +1,15 @@
+{
+  "name": "Lesen, entdecken, erzählen",
+  "short_name": "Lesewelt",
+  "description": "Interaktive Geschichten und Suchspiele für Kinder",
+  "lang": "de",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#e5f5e4",
+  "theme_color": "#25673f",
+  "icons": [
+    {"src":"./icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"./icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}
